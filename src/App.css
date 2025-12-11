@@ -1,38 +1,209 @@
-.App {
-  text-align: center;
+/* GPT Prompt: please give me a css style with purple theme for my travel website, 
+which has a header, two columns layout for trip lists, 
+a form section to suggest new trips, and a footer. 
+The style should be modern and clean. 
+The header and footer should have a purple gradient background. 
+The trip lists should have cards with shadows and hover effects. 
+The form section should have rounded input fields. 
+Please provide the complete css code. */
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: #f3f4f6;
+  color: #111827;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header */
+
+header {
+  background: linear-gradient(135deg, #6053b7, #85a2e7);
+  color: #ffffff;
+  padding: 24px 20px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+header h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+}
+
+header p {
+  margin: 4px 0;
+}
+
+.header-meta {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Layout */
+
+main {
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Two-column layout on wider screens */
+@media (min-width: 768px) {
+  .columns {
+    grid-template-columns: 1fr 1fr;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* Trip lists */
+
+section h2 {
+  font-size: 20px;
+  margin: 0 0 12px;
+  color: #111827;
+}
+
+section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+section li {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+section li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  border-color: #bfdbfe;
+}
+
+section li strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.trip-meta {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Form section */
+
+.form-section {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 18px 16px 20px;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.form-help {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.trip-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trip-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .trip-form-row {
+    grid-template-columns: 2fr 1fr 1fr;
   }
+}
+
+.trip-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.trip-form-field span {
+  color: #374151;
+}
+
+.trip-form-field input,
+.trip-form-field select {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.trip-form-field input:focus,
+.trip-form-field select:focus {
+  outline: none;
+  border-color: #6053b7;
+  box-shadow: 0 0 0 1px rgba(96, 83, 183, 0.4);
+}
+
+.trip-form-submit {
+  align-self: flex-start;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background-color: #6053b7;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.trip-form-submit:hover:not(:disabled) {
+  background-color: #4c3a9d;
+}
+
+.trip-form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding-top: 24px;
+  font-size: 13px;
+  color: #6b7280;
 }
